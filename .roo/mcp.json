@@ -1,3 +1,38 @@
 {
-  "mcpServers": {}
+    "mcpServers": {
+        "context7": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@upstash/context7-mcp@latest"
+            ]
+        },
+        "playwright": {
+            "command": "npx",
+            "args": [
+              "@playwright/mcp@latest"
+            ]
+          },
+          "sequential-thinking": {
+            "command": "npx",
+            "args": [
+              "-y",
+              "@modelcontextprotocol/server-sequential-thinking"
+            ]
+          },
+          "memory": {
+            "command": "npx",
+            "args": [
+              "-y",
+              "@modelcontextprotocol/server-memory"
+            ],
+            "env": {
+              "MEMORY_FILE_PATH": "~/.modelcontextprotocol/memory.json"
+            }
+          },
+          "fetch": {
+            "command": "uvx",
+            "args": ["mcp-server-fetch"]
+          }
+    }
 }

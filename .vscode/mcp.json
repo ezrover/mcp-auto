@@ -8,15 +8,16 @@
     }
   ],
   "servers": {
-    "Context7": {
-      "type": "stdio",
+    "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"]
+      "args": ["-y", "@upstash/context7-mcp@latest"],
+      "env": {
+        "DEFAULT_MINIMUM_TOKENS": "10000"
+      }
     },
 
     // https://github.com/modelcontextprotocol/servers/tree/main/src/fetch
     "fetch": {
-      "type": "stdio",
       "command": "uvx",
       "args": ["mcp-server-fetch"]
     },
@@ -39,6 +40,23 @@
       "args": [
         "@playwright/mcp@latest"
       ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "env": {
+        "MEMORY_FILE_PATH": "~/.modelcontextprotocol/memory.json"
+      }
     }
   }
 }
